@@ -1,0 +1,14 @@
+{
+  "name": "require",
+  "version": "0.0.0",
+  "authors": [
+    "Guilherme Nunes <guinunesilva@gmail.com>"
+  ],
+  "description": "AMD app framework",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "foundation": "latest",
+    "foundation-icon-fonts": "*"
+  }
+}
