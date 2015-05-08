@@ -28,6 +28,7 @@ module.exports = {
   getMyRoom: function (req, res) {
     var id = sails.sockets.id(req);
     res.json({id: id});
+    console.log(id);
   },
 
 
@@ -37,10 +38,10 @@ module.exports = {
 
     if (roomNames.indexOf(roomName) !== -1) {
       sails.sockets.join(req.socket, roomName);
-      res.json({message: 'Subscribed to a fun room called ' + roomName + '!'});
+      res.send(200, {message: 'Você entrou na sala ' + roomName + '!'});
     }
     else {
-      res.json({message: 'Room called ' + roomName + ' not exist!'});
+      res.send(400, {message: 'A sala ' + roomName + ' não existe mais!'});
     }
   },
 

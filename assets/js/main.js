@@ -47,7 +47,7 @@ $(document).ready(function () {
 	}
 
 	$('.language li a').on('click', function () {
-		$.ajax({url: "/main/setLocation", data: {location: $(this).text()}}).done(function (msg) {
+		$.ajax({url: "/main/setLocation", data: {location: $(this).text()}}).done(function () {
 			location.reload();
 		});
 	});
@@ -99,15 +99,21 @@ $(document).ready(function () {
 		random = ((new Date()).getTime()).toString();
 
 	if (roomName) {
-		io.socket.get('/main/join/', {roomName: roomName}, function (ev) {
-			console.log(ev.message);
+		io.socket.get('/main/join/', {roomName: roomName}, function (ev, jwres) {
+			if (jwres && jwres.statusCode === 200) {
+				$('.results').prepend(ev.message);
+			}
+			else {
+				alert(ev.message);
+				location.href = location.origin;
+			}
 		});
 	}
 	else {
 		io.socket.get('/main/getMyRoom/', function (ev) {
 			roomName = ev.id;
 			var href = location.origin + '/' + ev.id;
-			//$('.share-url').html('<a href="' + href + '">' + href + '</a>');
+			$('.share-url').html('<a href="' + href + '">' + href + '</a>');
 		});
 	}
 
