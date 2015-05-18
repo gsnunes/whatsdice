@@ -1,15 +1,20 @@
 {
-	"layout.title": "WhatsDice - Rolagem de dados em tempo real",
-	"layout.description": "WhatsDice resolve o problema na hora de rolar os dados numa aventura narrada no WhatsApp. Você compartilha esse link () com o seu grupo e todos podem acompanhar a rolagem de dados em tempo real.",
+	"layout.title": "WhatsDice - Real time dice roll",
+	"layout.description": "WhatsDice solve the problem in time to roll the dice on a narrated adventure in WhatsApp.",
 	"layout.browserUpgrade": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
 
 	"homepage.name": "WhatsDice",
 	"homepage.title": "Real time dice roll.",
-	"homepage.description": "WhatsDice resolve o problema na hora de rolar os dados numa aventura narrada no WhatsApp. Você compartilha esse link (<span class='share-url'></span>) com o seu grupo e todos podem acompanhar a rolagem de dados em tempo real.",
+	"homepage.description": "WhatsDice solve the problem in time to roll the dice on a narrated adventure in WhatsApp. You share the link below with your group and everyone can follow the real-time dice roll.",
 	"homepage.die": "Die",
 	"homepage.nbr": "Nbr",
 	"homepage.operator": "+ / -",
 	"homepage.mod": "Mod",
-	"homepage.madeBy": "Made by Guilherme Nunes",
-	"homepage.twitterText": "WhatsDice resolve o problema na hora de rolar os dados"
+	"homepage.madeBy": "Made by <a href='https://br.linkedin.com/in/gsnunes' target='_blank'>Guilherme Nunes</a>",
+	"homepage.twitterText": "WhatsDice solve the problem in time to roll the dice",
+
+	"mainController.myRoom": "You are the first to enter this room!",
+	"mainController.joinRoom": "{{name}} ENTERED the room!",
+	"mainController.roomNotExist": "The room {{roomName}} not exist!",
+	"mainController.leaveRoom": "{{name}} LEAVE the room!"
 }
