@@ -11,5 +11,10 @@
 	"homepage.operator": "+ / -",
 	"homepage.mod": "Mod",
 	"homepage.madeBy": "Made by <a href='https://br.linkedin.com/in/gsnunes' target='_blank'>Guilherme Nunes</a>",
-	"homepage.twitterText": "WhatsDice resolve o problema na hora de rolar os dados"
+	"homepage.twitterText": "WhatsDice resolve o problema na hora de rolar os dados",
+
+	"mainController.myRoom": "Você é o primeiro a entrar nesta sala!",
+	"mainController.joinRoom": "{{name}} ENTROU na sala!",
+	"mainController.roomNotExist": "A sala {{roomName}} não existe mais!",
+	"mainController.leaveRoom": "{{name}} SAIU da sala!"
 }

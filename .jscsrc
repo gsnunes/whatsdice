@@ -1,0 +1,11 @@
+{
+    "preset": "crockford",
+    "validateIndentation": {
+    	"value": "\t",
+    	"includeEmptyLines": "true"
+    },
+    "disallowDanglingUnderscores": null,
+    "requireLineFeedAtFileEnd": null,
+    "disallowTrailingWhitespace": "ignoreEmptyLines",
+    "disallowKeywordsOnNewLine": null
+}

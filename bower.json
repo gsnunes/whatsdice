@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "foundation": "latest",
-    "foundation-icon-fonts": "*"
+    "foundation": "~5.5.2",
+    "foundation-icon-fonts": "~3.0.0",
+    "backbone": "~1.1.2"
   }
 }
