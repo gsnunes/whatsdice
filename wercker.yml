@@ -6,10 +6,16 @@ build:
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
+        name: install npm dependencies
+        code: npm install
+    - script:
+        name: install bower dependencies
+        code: bower install
+    - script:
         name: echo nodejs information
         code: |
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
+            echo "node version $(node -v) running"
+            echo "npm version $(npm -v) running"
 deploy:
   steps:
     - add-to-known_hosts:
