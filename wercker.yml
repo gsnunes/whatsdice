@@ -9,6 +9,9 @@ build:
         name: install bower
         code: sudo npm install -g bower
     - script:
+        name: show directory
+        code: pwd
+    - script:
         name: install npm dependencies
         code: npm install
     - script:
