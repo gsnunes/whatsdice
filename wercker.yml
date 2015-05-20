@@ -5,15 +5,10 @@ build:
   steps:
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
+    - npm-install
     - script:
         name: install bower
         code: sudo npm install -g bower
-    - script:
-        name: show directory
-        code: pwd
-    - script:
-        name: install npm dependencies
-        code: npm install
     - script:
         name: install bower dependencies
         code: bower install
