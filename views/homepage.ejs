@@ -28,8 +28,17 @@
   <div class="panel callout">
     <h5><%= i18n('homepage.title') %></h5>
     <p><%= i18n('homepage.description') %></p>
-    <span class='share-url'></span>
+
+    <div class="row share-url">
+      <div class="large-12 columns">
+        <input type="text" onkeydown="event.preventDefault();event.stopPropagation();return false;" oncut="event.preventDefault();event.stopPropagation();return false;">
+      </div>
+    </div>
+
   </div>
+   </div>
+
+<div class="row">
 
   <div class="large-6 columns">
     <table class="dices">
@@ -48,7 +57,7 @@
         <form>
           <input type="hidden" name="die" value="4" />
 
-          <td><img src="images/d4a.jpg" alt="d4" title="d4"></td>
+          <td><div class='sprite-dice d4-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -73,7 +82,7 @@
         <form>
           <input type="hidden" name="die" value="6" />
 
-          <td><img src="images/d6a.jpg" alt="d6" title="d6"></td>
+          <td><div class='sprite-dice d6-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -98,7 +107,7 @@
         <form>
           <input type="hidden" name="die" value="8" />
 
-          <td><img src="images/d8a.jpg" alt="d8" title="d8"></td>
+          <td><div class='sprite-dice d8-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -123,7 +132,7 @@
         <form>
           <input type="hidden" name="die" value="10" />
 
-          <td><img src="images/d10a.jpg" alt="d10" title="d10"></td>
+          <td><div class='sprite-dice d10-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -148,7 +157,7 @@
         <form>
           <input type="hidden" name="die" value="12" />
 
-          <td><img src="images/d12a.jpg" alt="d12" title="d12"></td>
+          <td><div class='sprite-dice d12-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -173,7 +182,7 @@
         <form>
           <input type="hidden" name="die" value="20" />
 
-          <td><img src="images/d20a.jpg" alt="d20" title="d20"></td>
+          <td><div class='sprite-dice d20-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -198,7 +207,7 @@
         <form>
           <input type="hidden" name="die" value="100" />
 
-          <td><img src="images/d100a.jpg" alt="d100" title="d100"></td>
+          <td><div class='sprite-dice d100-icon'></div></td>
           <td>
             <div class="mobile-width">
               <input type="text" name="number" placeholder="1" />
@@ -222,16 +231,22 @@
       </tbody>
     </table>
   </div>
+
   <div class="large-6 columns">
     <div class="panel results hide">
       
     </div>
+  </div>
 
-    <div class="panel users hide">
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+  <div class="panel users hide">
+  </div>
       
     </div>
-  </div>
-</div>
+    </div>
 
 <footer class="row">
   <div class="large-12 columns">

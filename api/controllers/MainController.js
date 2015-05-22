@@ -14,6 +14,11 @@ module.exports = {
 			req.session.rooms = [];
 		}
 
+		var random = ((new Date()).getTime()).toString();
+		if (!req.cookies.whatsdice_name) {
+			res.cookie('whatsdice_name', ('guest' + random.substr(random.length - 5)), {maxAge: 900000});
+		}
+
 		if (req.cookies.whatsdice_locale) {
 			req.setLocale(req.cookies.whatsdice_locale);
 		}
@@ -33,8 +38,6 @@ module.exports = {
 
 	getMyRoom: function (req, res) {
 		var roomName = sails.sockets.id(req);
-
-		console.log(roomName);
 
 		if (req.session.rooms.indexOf(roomName) === -1) {
 			req.session.rooms.push(roomName);
@@ -83,6 +86,7 @@ module.exports = {
 			sails.sockets.leave(req.socket, sails.sockets.id(req));
 
 			sails.sockets.broadcast(roomName, 'results', {message: sails.__({phrase: 'mainController.joinRoom', locale: req.param('locale')}, {name: req.param('name')}), users: sails.controllers.main.getUsers(roomName)});
+			res.send(200);
 		}
 		else {
 			res.json(400, {message: sails.__({phrase: 'mainController.roomNotExist', locale: req.param('locale')}, {roomName: roomName})});

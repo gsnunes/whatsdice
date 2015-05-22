@@ -35,6 +35,15 @@ $(function () {
 			this.bindSocket();
 			this.populate();
 			this.setRoom();
+			this.setCss();
+		},
+
+
+		/**
+		 * setCss
+		 */
+		setCss: function () {
+			$('.results').css('max-height', $('.dices').outerHeight());
 		},
 
 
@@ -60,9 +69,7 @@ $(function () {
 					location.href = '//' + location.host;
 				}
 				else {
-					console.log(data);
-					$('.share-url').html('<a href="' + location.href + '">' + location.href + '</a>');
-					this.populateResults(data.message);
+					$('.share-url input').val(location.href);
 				}
 			}, this));
 		},
@@ -78,7 +85,7 @@ $(function () {
 			var href = location.protocol + '//' + location.host + '/' + ev.roomName;
 
 			this.populateResults(ev.message);
-			$('.share-url').html('<a href="' + href + '">' + href + '</a>');
+			$('.share-url input').val(href);
 			window.history.pushState(document.body.innerHTML, document.title, href);
 		},
 
@@ -99,23 +106,13 @@ $(function () {
 					}
 				}
 			}, this));
-
-			io.socket.on('list', function (data) {
-				console.log(data);
-			});
 		},
 
 
 		populate: function () {
-			var random = ((new Date()).getTime()).toString(),
-				locale = $.cookie('whatsdice_locale');
+			var locale = $.cookie('whatsdice_locale');
 
-			if ($.cookie('whatsdice_name')) {
-				this.$('input[name="name"]').val($.cookie('whatsdice_name'));
-			}
-			else {
-				$.cookie('whatsdice_name', 'guest' + random.substr(random.length - 5));
-			}
+			this.$('input[name="name"]').val($.cookie('whatsdice_name'));
 
 			if (locale) {
 				this.$('.language li').each(function () {
