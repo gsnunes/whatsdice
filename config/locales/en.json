@@ -1,11 +1,11 @@
 {
 	"layout.title": "WhatsDice - Real time dice roll",
-	"layout.description": "WhatsDice solve the problem in time to roll the dice on a narrated adventure in WhatsApp.",
+	"layout.description": "WhatsDice solve the problem in time to roll the dice on a RPG narrated adventure in WhatsApp.",
 	"layout.browserUpgrade": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
 
 	"homepage.name": "WhatsDice",
 	"homepage.title": "Real time dice roll.",
-	"homepage.description": "WhatsDice solve the problem in time to roll the dice on a narrated adventure in WhatsApp. You share the link below with your group and everyone can follow the real-time dice roll.",
+	"homepage.description": "WhatsDice solve the problem in time to roll the dice on a RPG narrated adventure in WhatsApp. You share the link below with your group and everyone can follow the real-time dice roll.",
 	"homepage.die": "Die",
 	"homepage.nbr": "Nbr",
 	"homepage.operator": "+ / -",

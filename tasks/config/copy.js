@@ -31,6 +31,16 @@ module.exports = function(grunt) {
 				src: ['**/*'],
 				dest: 'www'
 			}]
+		},
+		prod: {
+			files: [
+				{
+					expand: true,
+					cwd: '.tmp/public/bower_components/foundation-icon-fonts/',
+					src: ['foundation-icons.eot', 'foundation-icons.svg', 'foundation-icons.ttf', 'foundation-icons.woff'],
+					dest: '.tmp/public/min'
+				}
+			]
 		}
 	});
 
