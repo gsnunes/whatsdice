@@ -39,6 +39,12 @@ module.exports = function(grunt) {
 					cwd: '.tmp/public/bower_components/foundation-icon-fonts/',
 					src: ['foundation-icons.eot', 'foundation-icons.svg', 'foundation-icons.ttf', 'foundation-icons.woff'],
 					dest: '.tmp/public/min'
+				},
+				{
+					expand: true,
+					cwd: '.tmp/public/',
+					src: ['sitemap.xml'],
+					dest: '.tmp/public/min'
 				}
 			]
 		}
