@@ -28,12 +28,6 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-
-    <!--STYLES-->
-    <link rel="stylesheet" href="/min/production.min.css">
-    <!--STYLES END-->
-
-    <script src="/bower_components/modernizr/modernizr.js"></script>
   </head>
 
   <body>
@@ -93,8 +87,20 @@
           + Use a different preprocessor, like TypeScript
     -->
 
+    <!--STYLES-->
+    <link rel="stylesheet" href="/bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" href="/bower_components/foundation-icon-fonts/foundation-icons.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+
     <!--SCRIPTS-->
-    <script src="/min/production.min.js"></script>
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
+    <script src="/bower_components/backbone/backbone.js"></script>
+    <script src="/bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="/bower_components/foundation/js/foundation.min.js"></script>
+    <script src="/js/main.js"></script>
     <!--SCRIPTS END-->
 
     <script>

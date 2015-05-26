@@ -1,19 +1,19 @@
 {
-	"layout.title": "WhatsDice - Rolagem de dados em tempo real",
-	"layout.description": "WhatsDice resolve o problema na hora de rolar os dados numa aventura RPG narrada no WhatsApp.",
-	"layout.browserUpgrade": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
+	"layout.title": "WhatsDice - Rolador de dados em tempo real",
+	"layout.description": "WhatsDice é um rolador de dados em tempo real que pode ser usado em aventuras de RPG no WhatsApp.",
+	"layout.browserUpgrade": "Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href='http://browsehappy.com/'>atualize seu navegador</a> para melhorar sua experiência.",
 
 	"homepage.name": "WhatsDice",
-	"homepage.title": "Rolagem de dados em tempo real.",
-	"homepage.description": "WhatsDice resolve o problema na hora de rolar os dados numa aventura RPG narrada no WhatsApp. Você compartilha o link abaixo com o seu grupo e todos podem acompanhar a rolagem de dados em tempo real.",
+	"homepage.title": "Rolador de dados em tempo real.",
+	"homepage.description": "WhatsDice não é um simples rolador de dados. Por ser em tempo real, ele funciona como um chat de resultados. Assim, podemos utilizar esse recurso em aventuras de RPG no WhatsApp, tornando o resultado público pra todos que acessarem o mesmo endereço.",
 	"homepage.die": "Die",
 	"homepage.nbr": "Nbr",
 	"homepage.operator": "+ / -",
 	"homepage.mod": "Mod",
 	"homepage.madeBy": "WhatsDice by <a href='https://br.linkedin.com/in/gsnunes' target='_blank'>guinunesilva (at) gmail.com</a>",
-	"homepage.twitterText": "WhatsDice resolve o problema na hora de rolar os dados",
+	"homepage.twitterText": "WhatsDice é um rolador de dados em tempo real que pode ser usado em aventuras de RPG no WhatsApp.",
 
-	"mainController.myRoom": "Você é o primeiro a entrar nesta sala!",
+	"mainController.myRoom": "Você é o primeiro a entrar na sala!",
 	"mainController.joinRoom": "{{name}} ENTROU na sala!",
 	"mainController.roomNotExist": "A sala {{roomName}} não existe mais!",
 	"mainController.leaveRoom": "{{name}} SAIU da sala!"

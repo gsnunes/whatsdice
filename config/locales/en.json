@@ -1,20 +1,20 @@
 {
-	"layout.title": "WhatsDice - Real time dice roll",
-	"layout.description": "WhatsDice solve the problem in time to roll the dice on a RPG narrated adventure in WhatsApp.",
+	"layout.title": "WhatsDice - Real time dice roller",
+	"layout.description": "WhatsDice is a real time dice roller that can be used in RPG adventures on WhatsApp.",
 	"layout.browserUpgrade": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
 
 	"homepage.name": "WhatsDice",
-	"homepage.title": "Real time dice roll.",
-	"homepage.description": "WhatsDice solve the problem in time to roll the dice on a RPG narrated adventure in WhatsApp. You share the link below with your group and everyone can follow the real-time dice roll.",
+	"homepage.title": "Real time dice roller.",
+	"homepage.description": "WhatsDice it's not a simple dice roller. It works like a chat of real time results. WhatsDice can be used for RPG adventures on WhatsApp to make public the results for everyone who access the same URL address.",
 	"homepage.die": "Die",
 	"homepage.nbr": "Nbr",
 	"homepage.operator": "+ / -",
 	"homepage.mod": "Mod",
 	"homepage.madeBy": "WhatsDice by <a href='https://br.linkedin.com/in/gsnunes' target='_blank'>guinunesilva (at) gmail.com</a>",
-	"homepage.twitterText": "WhatsDice solve the problem in time to roll the dice",
+	"homepage.twitterText": "WhatsDice is a real time dice roller that can be used in RPG adventures on WhatsApp.",
 
 	"mainController.myRoom": "You are the first to enter this room!",
 	"mainController.joinRoom": "{{name}} ENTERED the room!",
 	"mainController.roomNotExist": "The room {{roomName}} not exist!",
-	"mainController.leaveRoom": "{{name}} LEAVE the room!"
+	"mainController.leaveRoom": "{{name}} LEFT the room!"
 }
