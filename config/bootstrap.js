@@ -12,40 +12,25 @@
 var cookieParse = require("sails/node_modules/cookie");
 
 module.exports.bootstrap = function (cb) {
-
 	sails.io.on('connection', function (socket) {
-		var rooms = _.keys(socket.adapter.rooms);
+		var rooms = _.keys(socket.adapter.rooms),
+			cookies = cookieParse.parse(socket.handshake.headers.cookie);
+
+		socket.userName = cookies.whatsdice_name;
+
+		socket.on('updateName', function (data) {
+			var oldName = socket.userName;
+
+			socket.userName = data.name;
+
+			sails.controllers.main.updateUsers(data.roomName, cookies.whatsdice_locale, data.name, oldName);
+		});
 
 		socket.on('disconnect', function () {
-			var cookies = cookieParse.parse(socket.handshake.headers.cookie);
-			
 			_.forEach(rooms, function (roomName) {
 				sails.controllers.main.leave(roomName, cookies.whatsdice_locale, cookies.whatsdice_name);
 			});
 		});
-
-		/*
-		var rooms = _.keys(socket.adapter.rooms);
-
-		socket.on('disconnect', function () {
-			var cookies = cookieParse.parse(socket.handshake.headers.cookie),
-				newRooms = _.keys(socket.adapter.rooms),
-				leavedRoom = '';
-
-			if (newRooms.length) {
-				_.forEach(rooms, function (roomName) {
-					if (_.indexOf(newRooms, roomName) === -1) {
-						leavedRoom = roomName;
-					}
-				});
-			}
-			else {
-				leavedRoom = rooms[0];
-			}
-
-			sails.controllers.main.leave(leavedRoom, cookies.whatsdice_locale, cookies.whatsdice_name);
-		});
-		*/
 	});
 
 	// It's very important to trigger this callback method when you are finished

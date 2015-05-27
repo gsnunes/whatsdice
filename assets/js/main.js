@@ -27,7 +27,8 @@ $(function () {
 		events: {
 			'blur input[name="name"]': 'updateCookieName',
 			'click .language li a': 'setLocation',
-			'submit form': 'submit'
+			'submit form': 'submit',
+			'keyup': 'processKey'
 		},
 
 
@@ -39,9 +40,13 @@ $(function () {
 		},
 
 
-		/**
-		 * setCss
-		 */
+		processKey: function (ev) {
+			if (ev.which === 13) {
+				this.updateCookieName();
+			}
+		},
+
+
 		setCss: function () {
 			$('.results').css('max-height', $('.dices').outerHeight());
 		},
@@ -84,7 +89,7 @@ $(function () {
 		populateRoom: function (ev) {
 			var href = location.protocol + '//' + location.host + '/' + ev.roomName;
 
-			this.populateResults(ev.message);
+			this.populateResults('<div class="result">' + ev.message + '</div>');
 			$('.share-url input').val(href);
 			window.history.pushState(document.body.innerHTML, document.title, href);
 		},
@@ -127,8 +132,13 @@ $(function () {
 		},
 
 
-		updateCookieName: function (ev) {
-			$.cookie('whatsdice_name', $(ev.target).val(), {expires: 999});
+		updateCookieName: function () {
+			var name = $('input[name="name"]').val();
+
+			if (name !== $.cookie('whatsdice_name')) {
+				$.cookie('whatsdice_name', name, {expires: 999});
+				io.socket._raw.emit('updateName', {name: name, roomName: location.pathname.split('/')[1]});
+			}
 		},
 
 

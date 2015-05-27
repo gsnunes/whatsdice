@@ -16,5 +16,6 @@
 	"mainController.myRoom": "Você é o primeiro a entrar na sala!",
 	"mainController.joinRoom": "{{name}} ENTROU na sala!",
 	"mainController.roomNotExist": "A sala {{roomName}} não existe mais!",
-	"mainController.leaveRoom": "{{name}} SAIU da sala!"
+	"mainController.leaveRoom": "{{name}} SAIU da sala!",
+	"mainController.updateName": "{{oldName}} trocou o nome para {{name}}!"
 }

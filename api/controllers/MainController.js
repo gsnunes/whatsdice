@@ -64,12 +64,17 @@ module.exports = {
 		var socket = sails.io.sockets.connected[userId],
 			cookies = cookieParse.parse(socket.handshake.headers.cookie);
 
-		return cookies.whatsdice_name;
+		return socket.userName || cookies.whatsdice_name;
 	},
 
 
 	leave: function (roomName, locale, name) {
 		sails.sockets.broadcast(roomName, 'results', {message: sails.__({phrase: 'mainController.leaveRoom', locale: locale}, {name: name}), users: sails.controllers.main.getUsers(roomName)});
+	},
+
+
+	updateUsers: function (roomName, locale, name, oldName) {
+		return sails.sockets.broadcast(roomName, 'results', {message: sails.__({phrase: 'mainController.updateName', locale: locale}, {name: name, oldName: oldName}), users: sails.controllers.main.getUsers(roomName)});
 	},
 
 

@@ -14,7 +14,8 @@
 	"homepage.twitterText": "WhatsDice is a real time dice roller that can be used in RPG adventures on WhatsApp.",
 
 	"mainController.myRoom": "You are the first to enter this room!",
-	"mainController.joinRoom": "{{name}} ENTERED the room!",
+	"mainController.joinRoom": "{{name}} has JOINED in this room!",
 	"mainController.roomNotExist": "The room {{roomName}} not exist!",
-	"mainController.leaveRoom": "{{name}} LEFT the room!"
+	"mainController.leaveRoom": "{{name}} LEFT the room!",
+	"mainController.updateName": "{{oldName}} is now known as {{name}}!"
 }
