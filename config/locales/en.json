@@ -1,10 +1,10 @@
 {
-	"layout.title": "WhatsDice - Real time dice roller",
+	"layout.title": "WhatsDice - Real time dice roller. Play RPG on WhatsApp",
 	"layout.description": "WhatsDice is a real time dice roller that can be used in RPG adventures on WhatsApp.",
 	"layout.browserUpgrade": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
 
 	"homepage.name": "WhatsDice",
-	"homepage.title": "Real time dice roller.",
+	"homepage.title": "Real time dice roller. Play RPG on WhatsApp",
 	"homepage.description": "WhatsDice it's not a simple dice roller. It works like a chat of real time results. WhatsDice can be used for RPG adventures on WhatsApp to make public the results for everyone who access the same URL address.",
 	"homepage.die": "Die",
 	"homepage.nbr": "Nbr",

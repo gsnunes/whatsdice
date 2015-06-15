@@ -1,10 +1,10 @@
 {
-	"layout.title": "WhatsDice - Rolador de dados em tempo real",
+	"layout.title": "WhatsDice - Rolador de dados em tempo real. Jogue RPG no WhatsApp",
 	"layout.description": "WhatsDice é um rolador de dados em tempo real que pode ser usado em aventuras de RPG no WhatsApp.",
 	"layout.browserUpgrade": "Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href='http://browsehappy.com/'>atualize seu navegador</a> para melhorar sua experiência.",
 
 	"homepage.name": "WhatsDice",
-	"homepage.title": "Rolador de dados em tempo real.",
+	"homepage.title": "Rolador de dados em tempo real. Jogue RPG no WhatsApp",
 	"homepage.description": "WhatsDice não é um simples rolador de dados. Por ser em tempo real, ele funciona como um chat de resultados. Assim, podemos utilizar esse recurso em aventuras de RPG no WhatsApp, tornando o resultado público pra todos que acessarem o mesmo endereço.",
 	"homepage.die": "Die",
 	"homepage.nbr": "Nbr",
