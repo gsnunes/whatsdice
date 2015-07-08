@@ -29,7 +29,8 @@ $(function () {
 			'click .language li a': 'setLocation',
 			'submit form[name="defaultForm"]': 'submit',
 			'submit form[name="fudgeForm"]': 'submitFudge',
-			'keyup': 'processKey'
+			'keyup': 'processKey',
+			'click .toggle-panel': 'togglePanel'
 		},
 
 
@@ -233,6 +234,18 @@ $(function () {
 			}
 
 			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': Roll ' + len + 'd fudge' + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
+		},
+
+
+		togglePanel: function () {
+			if ($('.panel-content').hasClass('hide')) {
+				$('.panel-content').removeClass('hide');
+				$('.panel-content').parent().removeClass('remove-padding');
+			}
+			else {
+				$('.panel-content').addClass('hide');
+				$('.panel-content').parent().addClass('remove-padding');
+			}
 		}
 
 	});

@@ -26,15 +26,18 @@
 
 <div class="row">
   <div class="panel callout">
-    <h5><%= i18n('homepage.title') %></h5>
-    <p><%= i18n('homepage.description') %></p>
+    <div class="panel-content">
+      <h5><%= i18n('homepage.title') %></h5>
+      <p><%= i18n('homepage.description') %></p>
 
-    <div class="row share-url">
-      <div class="large-12 columns">
-        <input type="text" onkeydown="event.preventDefault();event.stopPropagation();return false;" oncut="event.preventDefault();event.stopPropagation();return false;">
+      <div class="row share-url">
+        <div class="large-12 columns">
+          <input type="text" onkeydown="event.preventDefault();event.stopPropagation();return false;" oncut="event.preventDefault();event.stopPropagation();return false;">
+        </div>
       </div>
     </div>
 
+    <a href="javascript:;" class="toggle-panel"><%= i18n('homepage.hideShow') %></a>
   </div>
 </div>
 
