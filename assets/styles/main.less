@@ -1,38 +1,45 @@
-body {overflow-y:scroll}
+body {overflow-y: scroll}
 
+
+table.dices .operators {width: 36px}
+table.dices td {padding-left: 8px; padding-right: 8px}
+table.dices tr td:first-of-type {width: 52px; text-align: center}
 table.dices input, table.dices .button {margin-bottom: 0 !important}
 
-table.dices .radio-width {width: 36px}
-
-@media only screen and (min-width: 64.063em) {
-	footer .inline-list {position:relative; top:-16px}
-}
-
-footer .inline-list i {font-size:36px}
-footer p {margin-bottom:0}
 
 .share-url input {margin-bottom:0 !important}
 
-@media only screen and (max-width: 30em) {
-	table.dices {width:100%}
-	table.dices .mobile-width {width: 36px}
-	table.dices .button {padding-left: 10px !important; padding-right: 10px !important}
-	footer {text-align:center}
-	footer .inline-list {display:inline-block; margin:0 auto; float:none !important}
-	footer .inline-list li:first-child {margin-left:0}
-}
-
-.result {margin-bottom:10px}
-.result p {margin-bottom:0}
-.result .dice-result {font-size:10px}
 
 .results {overflow: auto}
+.result {margin-bottom: 10px}
+.result p {margin-bottom: 0}
+.result .dice-result {font-size: 10px}
 
-.sprite-dice { background: url('../images/sprite-dice.png') no-repeat top left; width: 30px; height: 30px; background-size:cover } 
-.sprite-dice.d4-icon { background-position: 0 0; } 
-.sprite-dice.d6-icon { background-position: 0 -30px; } 
-.sprite-dice.d8-icon { background-position: 0 -60px; } 
-.sprite-dice.d10-icon { background-position: 0 -90px; } 
-.sprite-dice.d12-icon { background-position: 0 -120px; } 
-.sprite-dice.d20-icon { background-position: 0 -150px; } 
-.sprite-dice.d100-icon { background-position: 0 -180px; } 
+
+footer .inline-list i {font-size: 36px}
+footer p {margin-bottom: 0}
+
+
+.sprite-dice {background: url('../images/sprite-dice.png') no-repeat top left; width: 30px; height: 30px; background-size:cover; display: inline-block}
+.sprite-dice.d4-icon {background-position: 0 0}
+.sprite-dice.d6-icon {background-position: 0 -30px}
+.sprite-dice.d8-icon {background-position: 0 -60px}
+.sprite-dice.d10-icon {background-position: 0 -90px}
+.sprite-dice.d12-icon {background-position: 0 -120px}
+.sprite-dice.d20-icon {background-position: 0 -150px}
+.sprite-dice.d100-icon {background-position: 0 -180px}
+.sprite-dice.fudge-icon {background-position: 0 -210px}
+
+
+@media only screen and (min-width: 64.063em) {
+	footer .inline-list {position: relative; top: -16px}
+}
+
+@media only screen and (max-width: 30em) {
+	table.dices {width: 100%}
+	table.dices .mobile-width {width: 36px}
+	table.dices .button {padding-left: 10px !important; padding-right: 10px !important; width: 100%}
+	footer {text-align:center}
+	footer .inline-list {display: inline-block; margin: 0 auto; float: none !important}
+	footer .inline-list li:first-child {margin-left: 0}
+}

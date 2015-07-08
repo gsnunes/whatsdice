@@ -27,7 +27,8 @@ $(function () {
 		events: {
 			'blur input[name="name"]': 'updateCookieName',
 			'click .language li a': 'setLocation',
-			'submit form': 'submit',
+			'submit form[name="defaultForm"]': 'submit',
+			'submit form[name="fudgeForm"]': 'submitFudge',
 			'keyup': 'processKey'
 		},
 
@@ -157,7 +158,8 @@ $(function () {
 				modifier = parseInt(data.modifier, 10) || 0,
 				aResult = [],
 				result = 0,
-				total = 0;
+				total = 0,
+				die = data.die || 1;
 
 			if (isNaN(data.number)) {
 				$(ev.target).parent().find('input[name="number"]').val('');
@@ -169,8 +171,13 @@ $(function () {
 				modifier = 0;
 			}
 
+			if (isNaN(data.die)) {
+				$(ev.target).parent().find('input[name="die"]').val('');
+				die = 1;
+			}
+
 			while (i < len) {
-				result = Math.floor((Math.random() * data.die) + 1);
+				result = Math.floor((Math.random() * die) + 1);
 				total = total + result;
 				aResult.push(result);
 
@@ -184,7 +191,48 @@ $(function () {
 				total = total - modifier;
 			}
 
-			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': Roll ' + len + 'd' + data.die + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join(' + ') + '</p>'});
+			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': Roll ' + len + 'd' + die + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
+		},
+
+
+		submitFudge: function (ev) {
+			ev.preventDefault();
+
+			var data = $(ev.target).serializeObject(),
+				i = 0, len = data.number || 4,
+				modifier = parseInt(data.modifier, 10) || 0,
+				fudgeValues = [+0, -1, +1, -1, +1, 0],
+				fudge = ['0', '-', '+', '-', '+', '0'],
+				aResult = [],
+				result = 0,
+				total = 0;
+
+			if (isNaN(data.number)) {
+				$(ev.target).parent().find('input[name="number"]').val('');
+				len = 4;
+			}
+
+			if (isNaN(data.modifier)) {
+				$(ev.target).parent().find('input[name="modifier"]').val('');
+				modifier = 0;
+			}
+
+			while (i < len) {
+				result = Math.floor(Math.random() * 6);
+				total = total + fudgeValues[result];
+				aResult.push(fudge[result]);
+
+				i++;
+			}
+
+			if (data.operator === 'P') {
+				total = total + modifier;
+			}
+			else {
+				total = total - modifier;
+			}
+
+			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': Roll ' + len + 'd fudge' + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
 		}
 
 	});

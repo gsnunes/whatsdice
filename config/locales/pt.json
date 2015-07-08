@@ -12,6 +12,7 @@
 	"homepage.mod": "Mod",
 	"homepage.madeBy": "WhatsDice by <a href='https://br.linkedin.com/in/gsnunes' target='_blank'>guinunesilva (at) gmail.com</a>",
 	"homepage.twitterText": "WhatsDice é um rolador de dados em tempo real que pode ser usado em aventuras de RPG no WhatsApp.",
+	"homepage.namePlaceholder": "seu nome nos resultados",
 
 	"mainController.myRoom": "Você é o primeiro a entrar na sala!",
 	"mainController.joinRoom": "{{name}} ENTROU na sala!",

@@ -12,6 +12,7 @@
 	"homepage.mod": "Mod",
 	"homepage.madeBy": "WhatsDice by <a href='https://br.linkedin.com/in/gsnunes' target='_blank'>guinunesilva (at) gmail.com</a>",
 	"homepage.twitterText": "WhatsDice is a real time dice roller that can be used in RPG adventures on WhatsApp.",
+	"homepage.namePlaceholder": "your name on results",
 
 	"mainController.myRoom": "You are the first to enter this room!",
 	"mainController.joinRoom": "{{name}} has JOINED in this room!",
