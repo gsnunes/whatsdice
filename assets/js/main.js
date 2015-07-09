@@ -26,7 +26,7 @@ $(function () {
 
 		events: {
 			'blur input[name="name"]': 'updateCookieName',
-			'click .language li a': 'setLocation',
+			/*'click .language li a': 'setLocation',*/
 			'submit form[name="defaultForm"]': 'submit',
 			'submit form[name="fudgeForm"]': 'submitFudge',
 			'keyup': 'processKey',
@@ -122,6 +122,7 @@ $(function () {
 			this.$('input[name="name"]').val($.cookie('whatsdice_name'));
 
 			if (locale) {
+				/*
 				this.$('.language li').each(function () {
 					if ($(this).find('a').text().toLowerCase() === locale) {
 						$(this).addClass('active');
@@ -130,6 +131,7 @@ $(function () {
 						$(this).removeClass('active');
 					}
 				});
+				*/
 			}
 		},
 
