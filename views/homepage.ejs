@@ -4,28 +4,28 @@
     <li class="name">
       <h1><a href="javascript:;"><%= i18n('homepage.name') %></a></h1>
     </li>
-     <li class="toggle-topbar menu-icon"><a href="javascript:;"><span>Menu</span></a></li>
+     <li class="toggle-topbar menu-icon"><a href="javascript:;"><span><%= i18n('homepage.menu') %></span></a></li>
   </ul>
 
   <section class="top-bar-section">
     <ul class="right">
-      <li class="has-dropdown language">
-        <a href="javascript:;">Manage dices</a>
+      <li class="has-dropdown">
+        <a href="javascript:;"><%= i18n('homepage.manageDice') %></a>
         <ul class="dropdown manage-dices noselect">
-          <li><a href="javascript:;"><input id="manage-d4" type="checkbox"><label for="manage-d4">Show d4</label></a></li>
-          <li><a href="javascript:;"><input id="manage-d6" type="checkbox"><label for="manage-d6">Show d6</label></a></li>
-          <li><a href="javascript:;"><input id="manage-d8" type="checkbox"><label for="manage-d8">Show d8</label></a></a></li>
-          <li><a href="javascript:;"><input id="manage-d10" type="checkbox"><label for="manage-d10">Show d10</label></a></li>
-          <li><a href="javascript:;"><input id="manage-d12" type="checkbox"><label for="manage-d12">Show d12</label></a></li>
-          <li><a href="javascript:;"><input id="manage-d20" type="checkbox"><label for="manage-d20">Show d20</label></a></li>
-          <li><a href="javascript:;"><input id="manage-d100" type="checkbox"><label for="manage-d100">Show d100</label></a></li>
-          <li><a href="javascript:;"><input id="manage-fudge" type="checkbox"><label for="manage-fudge">Show fudge</label></a></li>
-          <li><a href="javascript:;"><input id="manage-custom" type="checkbox"><label for="manage-custom">Show custom</label></a></li>
+          <li><a href="javascript:;" data-dice="#d4-dice"><input checked type="checkbox"><%= i18n('homepage.showD4') %></a></li>
+          <li><a href="javascript:;" data-dice="#d6-dice"><input checked type="checkbox"><%= i18n('homepage.showD6') %></a></li>
+          <li><a href="javascript:;" data-dice="#d8-dice"><input checked type="checkbox"><%= i18n('homepage.showD8') %></a></li>
+          <li><a href="javascript:;" data-dice="#d10-dice"><input checked type="checkbox"><%= i18n('homepage.showD10') %></a></li>
+          <li><a href="javascript:;" data-dice="#d12-dice"><input checked type="checkbox"><%= i18n('homepage.showD12') %></a></li>
+          <li><a href="javascript:;" data-dice="#d20-dice"><input checked type="checkbox"><%= i18n('homepage.showD20') %></a></li>
+          <li><a href="javascript:;" data-dice="#d100-dice"><input checked type="checkbox"><%= i18n('homepage.showD100') %></a></li>
+          <li><a href="javascript:;" data-dice="#fudge-dice"><input checked type="checkbox"><%= i18n('homepage.showFudge') %></a></li>
+          <li><a href="javascript:;" data-dice="#custom-dice"><input checked type="checkbox"><%= i18n('homepage.showCustom') %></a></li>
         </ul>
       </li>
-      <li class="has-dropdown language">
-        <a href="javascript:;">Language</a>
-        <ul class="dropdown">
+      <li class="has-dropdown">
+        <a href="javascript:;"><%= i18n('homepage.language') %></a>
+        <ul class="dropdown language">
           <li><a href="javascript:;">En</a></li>
           <li><a href="javascript:;">Pt</a></li>
         </ul>
@@ -69,8 +69,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr class="no-data hide"><td colspan="5"><%= i18n('homepage.noData') %></td></tr>
 
-        <tr>
+        <tr id="d4-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="4" />
 
@@ -95,7 +96,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="d6-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="6" />
 
@@ -120,7 +121,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="d8-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="8" />
 
@@ -145,7 +146,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="d10-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="10" />
 
@@ -170,7 +171,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="d12-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="12" />
 
@@ -195,7 +196,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="d20-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="20" />
 
@@ -220,7 +221,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="d100-dice">
         <form name="defaultForm">
           <input type="hidden" name="die" value="100" />
 
@@ -245,7 +246,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="fudge-dice">
         <form name="fudgeForm">
           <input type="hidden" name="die" value="6" />
 
@@ -270,7 +271,7 @@
         </form>
         </tr>
 
-        <tr>
+        <tr id="custom-dice">
         <form name="defaultForm">
           <td>
             <div class="mobile-width">

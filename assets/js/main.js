@@ -26,7 +26,8 @@ $(function () {
 
 		events: {
 			'blur input[name="name"]': 'updateCookieName',
-			/*'click .language li a': 'setLocation',*/
+			'click .language li:not(.title, .parent-link) a': 'setLocation',
+			'click .manage-dices li:not(.title, .parent-link) a': 'manageDices',
 			'submit form[name="defaultForm"]': 'submit',
 			'submit form[name="fudgeForm"]': 'submitFudge',
 			'keyup': 'processKey',
@@ -122,7 +123,6 @@ $(function () {
 			this.$('input[name="name"]').val($.cookie('whatsdice_name'));
 
 			if (locale) {
-				/*
 				this.$('.language li').each(function () {
 					if ($(this).find('a').text().toLowerCase() === locale) {
 						$(this).addClass('active');
@@ -131,7 +131,6 @@ $(function () {
 						$(this).removeClass('active');
 					}
 				});
-				*/
 			}
 		},
 
@@ -247,6 +246,30 @@ $(function () {
 			else {
 				$('.panel-content').addClass('hide');
 				$('.panel-content').parent().addClass('remove-padding');
+			}
+		},
+
+
+		manageDices: function (ev) {
+			var input = $(ev.target).find('input'),
+				id = $(ev.target).data('dice');
+
+			if (input && input.length) {
+				if (input.is(':checked')) {
+					$(id).hide();
+					input.prop('checked', false);
+				}
+				else {
+					$(id).show();
+					input.prop('checked', true);
+				}
+			}
+
+			if ($('.dices').find('tr:visible').length > 1) {
+				$('.dices tr.no-data').addClass('hide');
+			}
+			else {
+				$('.dices tr.no-data').removeClass('hide');
 			}
 		}
 
