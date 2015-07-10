@@ -131,7 +131,8 @@ $(function () {
 
 
 		populate: function () {
-			var locale = $.cookie('whatsdice_locale');
+			var locale = $.cookie('whatsdice_locale'),
+				dice = $.cookie('whatsdice_dice');
 
 			this.$('input[name="name"]').val($.cookie('whatsdice_name'));
 
@@ -143,6 +144,25 @@ $(function () {
 					else {
 						$(this).removeClass('active');
 					}
+				});
+			}
+
+
+			if (dice) {
+				dice = JSON.parse(dice);
+			}
+
+			if (dice) {
+				_.each(dice, function (value, prop) {
+					if (!value) {
+						$(prop).hide();
+					}
+
+					if ($('.dices').find('tr:visible').length <= 1) {
+						$('.dices tr.no-data').removeClass('hide');
+					}
+					
+					$('.manage-dices li:not(.title, .parent-link) a[data-dice="' + prop + '"]').find('input').prop('checked', value);
 				});
 			}
 		},
@@ -265,7 +285,8 @@ $(function () {
 
 		manageDices: function (ev) {
 			var input = $(ev.target).find('input'),
-				id = $(ev.target).data('dice');
+				id = $(ev.target).data('dice'),
+				diceData = {};
 
 			if (input && input.length) {
 				if (input.is(':checked')) {
@@ -284,6 +305,13 @@ $(function () {
 			else {
 				$('.dices tr.no-data').removeClass('hide');
 			}
+
+
+			$('.manage-dices').find('li:not(.title, .parent-link) a').map(function () {
+				diceData[$(this).data('dice')] = $(this).find('input').prop('checked');
+			});
+			
+			$.cookie('whatsdice_dice', JSON.stringify(diceData));
 		}
 
 	});
