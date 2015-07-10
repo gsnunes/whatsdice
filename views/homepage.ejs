@@ -46,7 +46,8 @@
 
       <div class="row share-url">
         <div class="large-12 columns">
-          <input type="text" onkeydown="event.preventDefault();event.stopPropagation();return false;" oncut="event.preventDefault();event.stopPropagation();return false;">
+          <input type="text" style="display: none" class="desktop-input" readonly onClick="this.setSelectionRange(0, this.value.length)">
+          <input type="text" style="display: none" class="mobile-input" onkeydown="event.preventDefault();event.stopPropagation();return false;" oncut="event.preventDefault();event.stopPropagation();return false;">
         </div>
       </div>
     </div>

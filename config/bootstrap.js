@@ -13,23 +13,24 @@ var cookieParse = require("sails/node_modules/cookie");
 
 module.exports.bootstrap = function (cb) {
 	sails.io.on('connection', function (socket) {
-		var rooms = _.keys(socket.adapter.rooms),
+		var currentRoom = {},
 			cookies = cookieParse.parse(socket.handshake.headers.cookie);
 
 		socket.userName = cookies.whatsdice_name;
+
+		socket.on('updateCurrentRoom', function (data) {
+			currentRoom = data;
+		});
 
 		socket.on('updateName', function (data) {
 			var oldName = socket.userName;
 
 			socket.userName = data.name;
-
-			sails.controllers.main.updateUsers(data.roomName, cookies.whatsdice_locale, data.name, oldName);
+			sails.controllers.main.updateUsers(data.roomName, data.locale, data.name, oldName);
 		});
 
 		socket.on('disconnect', function () {
-			_.forEach(rooms, function (roomName) {
-				sails.controllers.main.leave(roomName, cookies.whatsdice_locale, cookies.whatsdice_name);
-			});
+			sails.controllers.main.leave(currentRoom.roomName, currentRoom.locale, currentRoom.name);
 		});
 	});
 

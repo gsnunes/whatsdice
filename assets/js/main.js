@@ -36,10 +36,21 @@ $(function () {
 
 
 		initialize: function () {
+			this.setShareUrlInput();
 			this.bindSocket();
 			this.populate();
 			this.setRoom();
 			this.setCss();
+		},
+
+
+		setShareUrlInput: function () {
+			if (Modernizr.touch) {
+				$('.share-url input.mobile-input').show();
+			}
+			else {
+				$('.share-url input.desktop-input').show();
+			}
 		},
 
 
@@ -65,6 +76,7 @@ $(function () {
 				io.socket.get('/main/getMyRoom/', {locale: $.cookie('whatsdice_locale')}, _.bind(function (ev) {
 					this.populateRoom(ev);
 					this.populateUsers([$.cookie('whatsdice_name')]);
+					io.socket._raw.emit('updateCurrentRoom', {name: $.cookie('whatsdice_name'), roomName: ev.roomName, locale: $.cookie('whatsdice_locale')});
 				}, this));
 			}
 		},
@@ -78,6 +90,7 @@ $(function () {
 				}
 				else {
 					$('.share-url input').val(location.href);
+					io.socket._raw.emit('updateCurrentRoom', {name: $.cookie('whatsdice_name'), roomName: roomName, locale: $.cookie('whatsdice_locale')});
 				}
 			}, this));
 		},
@@ -140,7 +153,7 @@ $(function () {
 
 			if (name !== $.cookie('whatsdice_name')) {
 				$.cookie('whatsdice_name', name, {expires: 999});
-				io.socket._raw.emit('updateName', {name: name, roomName: location.pathname.split('/')[1]});
+				io.socket._raw.emit('updateName', {name: name, roomName: location.pathname.split('/')[1], locale: $.cookie('whatsdice_locale')});
 			}
 		},
 
