@@ -30,6 +30,11 @@ module.exports = {
 	},
 
 
+	getCatalog: function (req, res) {
+		res.json(req.getCatalog(req.cookies.whatsdice_locale));
+	},
+
+
 	setLocation: function (req, res) {
 		res.cookie('whatsdice_locale', req.param('location').toLowerCase(), {maxAge: 900000});
 		res.send(200);
@@ -69,12 +74,12 @@ module.exports = {
 
 
 	leave: function (roomName, locale, name) {
-		sails.sockets.broadcast(roomName, 'results', {message: sails.__({phrase: 'mainController.leaveRoom', locale: locale}, {name: name}), users: sails.controllers.main.getUsers(roomName)});
+		sails.sockets.broadcast(roomName, 'results', {labelKey: 'mainController.leaveRoom', labelValues: name, users: sails.controllers.main.getUsers(roomName)});
 	},
 
 
 	updateUsers: function (roomName, locale, name, oldName) {
-		return sails.sockets.broadcast(roomName, 'results', {message: sails.__({phrase: 'mainController.updateName', locale: locale}, {name: name, oldName: oldName}), users: sails.controllers.main.getUsers(roomName)});
+		return sails.sockets.broadcast(roomName, 'results', {labelKey: 'mainController.updateName', labelValues: [oldName, name], users: sails.controllers.main.getUsers(roomName)});
 	},
 
 
@@ -90,7 +95,7 @@ module.exports = {
 			sails.sockets.join(req.socket, roomName);
 			sails.sockets.leave(req.socket, sails.sockets.id(req));
 
-			sails.sockets.broadcast(roomName, 'results', {message: sails.__({phrase: 'mainController.joinRoom', locale: req.param('locale')}, {name: req.param('name')}), users: sails.controllers.main.getUsers(roomName)});
+			sails.sockets.broadcast(roomName, 'results', {labelKey: 'mainController.joinRoom', labelValues: req.param('name'), users: sails.controllers.main.getUsers(roomName)});
 			res.send(200);
 		}
 		else {

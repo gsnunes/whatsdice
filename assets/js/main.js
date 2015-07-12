@@ -36,11 +36,15 @@ $(function () {
 
 
 		initialize: function () {
-			this.setShareUrlInput();
-			this.bindSocket();
-			this.populate();
-			this.setRoom();
-			this.setCss();
+			$.ajax({url: "/main/getCatalog"}).done(_.bind(function (result) {
+				$.i18n.load(result);
+
+				this.setShareUrlInput();
+				this.bindSocket();
+				this.populate();
+				this.setRoom();
+				this.setCss();
+			}, this));
 		},
 
 
@@ -119,12 +123,16 @@ $(function () {
 
 		bindSocket: function () {
 			io.socket.on('results', _.bind(function (data) {
+				if (data.labelKey) {
+					this.populateResults('<div class="result">' + $.i18n._(data.labelKey, data.labelValues) + '</div>');
+				}
+
 				if (data.message) {
 					this.populateResults('<div class="result">' + data.message + '</div>');
+				}
 
-					if (data.users) {
-						this.populateUsers(data.users);
-					}
+				if (data.users) {
+					this.populateUsers(data.users);
 				}
 			}, this));
 		},
@@ -226,7 +234,7 @@ $(function () {
 				total = total - modifier;
 			}
 
-			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': Roll ' + len + 'd' + die + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
+			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': ' + $.i18n._('main.roll') + ' ' + len + 'd' + die + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
 		},
 
 
@@ -267,7 +275,7 @@ $(function () {
 				total = total - modifier;
 			}
 
-			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': Roll ' + len + 'd fudge' + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
+			io.socket.get('/main/roll/', {result: '<p>' + $.cookie('whatsdice_name') + ': ' + $.i18n._('main.roll') + ' ' + len + 'd fudge' + (data.operator === 'P' ? ' + ' : ' - ') + modifier + ' = <b>' + total + '</b></p>' + '<p class="dice-result">' + aResult.join('&nbsp;&nbsp;') + '</p>'});
 		},
 
 

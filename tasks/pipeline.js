@@ -36,6 +36,7 @@ var jsFilesToInject = [
   'bower_components/backbone/backbone.js',
   'bower_components/jquery.cookie/jquery.cookie.js',
   'bower_components/foundation/js/foundation.min.js',
+  'bower_components/jquery-i18n/jquery.i18n.min.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

@@ -30,8 +30,10 @@
 	"homepage.showCustom": "Mostrar custom",
 
 	"mainController.myRoom": "Você é o primeiro a entrar na sala!",
-	"mainController.joinRoom": "{{name}} ENTROU na sala!",
+	"mainController.joinRoom": "%s ENTROU na sala!",
 	"mainController.roomNotExist": "A sala {{roomName}} não existe mais!",
-	"mainController.leaveRoom": "{{name}} SAIU da sala!",
-	"mainController.updateName": "{{oldName}} trocou o nome para {{name}}!"
+	"mainController.leaveRoom": "%s SAIU da sala!",
+	"mainController.updateName": "%s trocou o nome para %s!",
+
+	"main.roll": "Roll"
 }

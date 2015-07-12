@@ -30,8 +30,10 @@
 	"homepage.showCustom": "Show custom",
 
 	"mainController.myRoom": "You are the first to enter this room!",
-	"mainController.joinRoom": "{{name}} has JOINED in this room!",
+	"mainController.joinRoom": "%s has JOINED in this room!",
 	"mainController.roomNotExist": "The room {{roomName}} not exist!",
-	"mainController.leaveRoom": "{{name}} LEFT the room!",
-	"mainController.updateName": "{{oldName}} is now known as {{name}}!"
+	"mainController.leaveRoom": "%s LEFT the room!",
+	"mainController.updateName": "%s is now known as %s!",
+
+	"main.roll": "Roll"
 }
