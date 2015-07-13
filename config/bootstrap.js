@@ -26,6 +26,7 @@ module.exports.bootstrap = function (cb) {
 			var oldName = socket.userName;
 
 			socket.userName = data.name;
+			currentRoom.name = data.name;
 			sails.controllers.main.updateUsers(data.roomName, data.locale, data.name, oldName);
 		});
 
