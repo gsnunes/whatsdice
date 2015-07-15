@@ -2,11 +2,20 @@
 <html>
   <head>
     <title><%= i18n('layout.title') %></title>
+
     <meta name="description" content="<%= i18n('layout.description') %>">
+    <meta name="author" content="Guilherme Nunes">
+
+    <meta property="og:site_name" content="WhatsDice"/>
+    <meta property="og:title" content="<%= i18n('layout.title') %>" />
+    <meta property="og:url" content="http://whatsdice.com" />
+    <meta property="og:image" content="images/whatsdice.png" />
+    <meta property="og:description" content="<%= i18n('layout.description') %>" />
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <link rel="image_src" href="images/whatsdice.png" />
     
     <!--  
         Stylesheets and Preprocessors
